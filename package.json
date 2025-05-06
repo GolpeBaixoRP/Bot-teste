@@ -3,7 +3,7 @@
 	"version": "4.0.38",
 	"private": "true",
 	"description": "The most popular open-source ticket management bot for Discord.",
-	"main": "src/",
+	"main": "src/index.js"
 	"scripts": {
 		"db.dump": "node scripts/dump.mjs",
 		"db.prune": "node scripts/prune.mjs",
