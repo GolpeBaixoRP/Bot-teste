@@ -1,1 +1,0 @@
-// Arquivo reservado para funções utilitárias, se necessário futuramente.
