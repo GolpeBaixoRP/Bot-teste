@@ -1,0 +1,10 @@
+
+{
+    "name": "reset-guilda-integration",
+    "version": "1.0.0",
+    "main": "resetGuilda.js",
+    "dependencies": {
+        "discord.js": "^14.7.1",
+        "@prisma/client": "^4.5.0"
+    }
+}
