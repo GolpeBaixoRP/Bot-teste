@@ -35,3 +35,4 @@ module.exports = {
         }
     },
 };
+module.exports = resetGuilda; // se tiver uma função chamada resetGuilda
