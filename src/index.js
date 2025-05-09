@@ -62,6 +62,7 @@ const logger = require('./lib/logger');
 let config = YAML.parse(fs.readFileSync(path.join(__dirname, 'user/config.yml'), 'utf8'));
 let log = logger(config);
 
+// define shutdown logic
 function exit(signal) {
 	log.notice(`Received ${signal}`);
 	client.destroy();
@@ -69,19 +70,17 @@ function exit(signal) {
 }
 
 process.on('SIGTERM', () => exit('SIGTERM'));
-
 process.on('SIGINT', () => exit('SIGINT'));
-
 process.on('uncaughtException', (error, origin) => {
 	log.notice(`Discord Tickets v${pkg.version} on Node.js ${process.version} (${process.platform})`);
 	log.warn(origin === 'uncaughtException' ? 'Uncaught exception' : 'Unhandled promise rejection' + ` (${error.name})`);
 	log.error(error);
 });
-
 process.on('warning', warning => log.warn(warning.stack || warning));
 
 const Client = require('./client');
 const http = require('./http');
+const resetGuildaRoute = require('./routes/resetGuilda'); // Importa o módulo de reset da guilda
 
 // the `user` directory may or may not exist depending on if sqlite is being used.
 // copy any files that don't already exist
@@ -101,5 +100,7 @@ log = client.log;
 
 // start the bot and then the web server
 client.login().then(() => {
+	// Registra a rota de resetGuilda
 	http(client);
+	resetGuildaRoute(client); // Passando o cliente para o módulo de reset de guilda
 });
