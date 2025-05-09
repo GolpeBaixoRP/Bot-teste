@@ -55,7 +55,7 @@ process.on('warning', warning => log.warn(warning.stack || warning));
 
 const Client = require('./client');
 const http = require('./http');
-const resetGuildaRoute = require('./routes/reset_guilda_integration/resetGuilda'); // Importa o módulo de reset da guilda
+const resetGuilda = require('./reset_guilda_integration/resetGuilda'); // Importa o módulo de reset da guilda
 
 // the `user` directory may or may not exist depending on if sqlite is being used.
 // copy any files that don't already exist
