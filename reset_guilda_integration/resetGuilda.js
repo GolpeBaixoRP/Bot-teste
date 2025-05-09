@@ -1,4 +1,3 @@
-
 const { SlashCommandBuilder } = require('discord.js');
 const { PrismaClient } = require('@prisma/client');
 const { getGuildSettings, resetPermissions, createCategoriesAndChannels } = require('./utils');
@@ -35,4 +34,3 @@ module.exports = {
         }
     },
 };
-module.exports = resetGuilda; // se tiver uma função chamada resetGuilda
